@@ -268,8 +268,8 @@ class BEVFusion(Base3DDetector):
                                                 camera2lidar, img_aug_matrix,
                                                 lidar_aug_matrix,
                                                 batch_input_metas)
-            features.append(img_feature)
-        pts_feature = self.extract_pts_feat(batch_inputs_dict)
+            features.append(img_feature)#(b,c,y, x)
+        pts_feature = self.extract_pts_feat(batch_inputs_dict)#(b,c,h,w)
         features.append(pts_feature)
 
         if self.fusion_layer is not None:
